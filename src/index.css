@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  background-image: url("./public/netflixbackground.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #e6e6e6;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  filter: brightness(50%);
+}
+
+/* loader component css */
+.nfLoader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 37px 0 0 -25px;
+  width: 80px;
+  height: 80px;
+}
+
+.nfLoader:after {
+  content: "";
+  background-image: url(https://assets.nflxext.com/en_us/pages/wiplayer/site-spinner.png);
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  position: absolute;
+  margin: -6px;
+  width: inherit;
+  height: inherit;
+  animation: nfLoader-spin 1.1s linear infinite, 1 !important;
+  -webkit-animation: nfLoader-spin 1.1s linear infinite, 1 !important;
+}
+
+@keyframes nfLoader-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes nfLoader-spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.outlet {
+  border-bottom: 2px solid transparent;
+}
+
+.active {
+  color: white;
+  border-bottom: 2px solid red;
+}
+
+.play-icon {
+  margin-right: -10px;
+}
+
+.play-text {
+  width: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease, width 0.4s ease;
+
+}
+
+.slide-out {
+  opacity: 1;
+  width: 50px;
+  transition: opacity 0.9s ease, width 0.4s ease;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
